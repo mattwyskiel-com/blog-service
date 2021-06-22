@@ -1703,6 +1703,22 @@
     content-type "^1.0.4"
     http-errors "^1.6.3"
 
+"@middy/util@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@middy/util/-/util-2.4.1.tgz#0b23ca418ffd004797ae95f68fdc66dce6b73a78"
+  integrity sha512-iN5Jqljz8BMhOtwQnTewn4veKWnRUF4krQDXrTs492oOoj/DcE7cC99vl2pYKc2TOQND3bGqjFL52aza6Arc9g==
+
+"@middy/validator@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@middy/validator/-/validator-2.4.1.tgz#92c1f4a2623ab3554ce8f0dae14e988c1fed29f3"
+  integrity sha512-JpPdJqBoxP4Ok/lDiAL7l6Kzt8da4or2msStMyRCtR6T3U4H0cGKMR5298cMbZ1zo8yM4sIOp4IPErN+BbPlEQ==
+  dependencies:
+    "@middy/util" "^2.4.1"
+    ajv "8.6.0"
+    ajv-formats "2.1.0"
+    ajv-formats-draft2019 "1.4.3"
+    ajv-i18n "4.0.0"
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz"
@@ -2477,10 +2493,42 @@ agent-base@6:
   dependencies:
     debug "4"
 
+ajv-formats-draft2019@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/ajv-formats-draft2019/-/ajv-formats-draft2019-1.4.3.tgz#d305a5294d6d04aa6067cb3a53ad6628a650afdd"
+  integrity sha512-QPZGACI62TyfOg9jhYhXNGRXI/6yZ5bGfv2pT3ldAgg/lFlJk9wZlS6DKsMpApQKG+SJtL75SbCoLdY2xlEhfw==
+  dependencies:
+    isemail "^3.2.0"
+    punycode "^2.1.1"
+    schemes "^1.1.1"
+    uri-js "^4.2.2"
+
+ajv-formats@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.1.0.tgz#96eaf83e38d32108b66d82a9cb0cfa24886cdfeb"
+  integrity sha512-USH2jBb+C/hIpwD2iRjp0pe0k+MvzG0mlSn/FIdCgQhUb9ALPRjt2KIQdfZDS9r0ZIeUAg7gOu9KL0PFqGqr5Q==
+  dependencies:
+    ajv "^8.0.0"
+
+ajv-i18n@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ajv-i18n/-/ajv-i18n-4.0.0.tgz#7b07e28fd417808e18fcc30df03a76d169be9375"
+  integrity sha512-bZxvSt2PZMBndVlLyhlU5OsqsulV83zwQR8NBiQICQP1SU3gAPXCuRVXcaFS0ZiNBtNLrTGKXK90vtQDAwiMRQ==
+
 ajv-keywords@^3.5.2:
   version "3.5.2"
   resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
+
+ajv@8.6.0, ajv@^8.0.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.0.tgz#60cc45d9c46a477d80d92c48076d972c342e5720"
+  integrity sha512-cnUG4NSBiM4YFBxgZIj/In3/6KX+rQ2l2YPRVcvAMQGWEPKuXoPIhxzwqh31jA3IPbI4qEOp/5ILI4ynioXsGQ==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
 
 ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5, ajv@^6.12.6:
   version "6.12.6"
@@ -5124,6 +5172,13 @@ isarray@^1.0.0, isarray@~1.0.0:
   resolved "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
+isemail@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.2.0.tgz#59310a021931a9fb06bbb51e155ce0b3f236832c"
+  integrity sha512-zKqkK+O+dGqevc93KNsbZ/TqTUFd46MwWjYOoMrjIMZ51eU7DtQG3Wmd9SQQT7i7RVnuTPEiYEWHU3MSbxC1Tg==
+  dependencies:
+    punycode "2.x.x"
+
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
@@ -6466,7 +6521,7 @@ punycode@1.3.2:
   resolved "https://registry.npmjs.org/punycode/-/punycode-1.3.2.tgz"
   integrity sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0=
 
-punycode@^2.1.0, punycode@^2.1.1:
+punycode@2.x.x, punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
@@ -6808,6 +6863,13 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.6"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+schemes@^1.1.1:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/schemes/-/schemes-1.3.0.tgz#ed17f0e2b7e839bf537a4ffe3dca25083a67e24c"
+  integrity sha512-j897hccQkOKrATAnSFfERCv07Wxw5ciXfQCxD0hUWG54nqSWcqv+6laym2C3QQRLIO2TZCUNeU90x6Qw09LRxw==
+  dependencies:
+    extend "^3.0.0"
 
 section-matter@^1.0.0:
   version "1.0.0"

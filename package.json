@@ -16,6 +16,7 @@
     "@aws-sdk/s3-request-presigner": "^3.18.0",
     "@middy/core": "^1.5.2",
     "@middy/http-json-body-parser": "^1.5.2",
+    "@middy/validator": "^2.4.1",
     "gray-matter": "^4.0.3",
     "lambda-multipart-parser": "^1.0.1",
     "mime-types": "^2.1.31",

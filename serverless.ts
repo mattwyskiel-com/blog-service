@@ -1,6 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 import type { AWS } from '@serverless/typescript';
 import restore from '@functions/restore';
+import postExcerpts from '@functions/getPosts';
 
 const serverlessConfiguration: AWS = {
   service: 'blog-service',
@@ -70,13 +71,14 @@ const serverlessConfiguration: AWS = {
           'dynamodb:Delete*',
           'dynamodb:Update*',
           'dynamodb:PutItem',
+          'dynamodb:PartiQLSelect',
         ],
         Resource: 'arn:aws:dynamodb:*:*:table/${self:provider.environment.DYNAMODB_TABLE}',
       },
     ],
   },
   // import the function via paths
-  functions: { restore },
+  functions: { restore, postExcerpts },
   resources: {
     Resources: {
       BlogBucket: {
