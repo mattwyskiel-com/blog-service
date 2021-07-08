@@ -7,13 +7,8 @@ export default {
     {
       http: {
         method: 'get',
-        path: 'postExcerpts',
+        path: 'posts/{slug}',
         cors: true,
-        authorizer: {
-          name: 'getBlogPostsAuthorizer',
-          arn: '${env:cognito_user_pool_arn}',
-          scopes: ['aws.cognito.signin.user.admin'],
-        },
       },
     },
   ],

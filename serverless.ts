@@ -1,7 +1,8 @@
 /* eslint-disable no-template-curly-in-string */
 import type { AWS } from '@serverless/typescript';
 import restore from '@functions/restore';
-import postExcerpts from '@functions/getPosts';
+import postExcerpts from '@functions/getPostExcerpts';
+import getPost from '@functions/getPost';
 
 const serverlessConfiguration: AWS = {
   service: 'blog-service',
@@ -78,7 +79,7 @@ const serverlessConfiguration: AWS = {
     ],
   },
   // import the function via paths
-  functions: { restore, postExcerpts },
+  functions: { restore, postExcerpts, getPost },
   resources: {
     Resources: {
       BlogBucket: {

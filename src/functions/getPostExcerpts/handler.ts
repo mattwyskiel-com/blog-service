@@ -2,7 +2,6 @@ import { formatJSONResponse } from '@libs/apiGateway';
 import { middyfy } from '@libs/lambda';
 import { Logger } from '@libs/logger';
 import { DynamoDBService } from '@libs/services/dynamoService';
-import { verifyAccess } from '@libs/verifyAccess';
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import 'source-map-support/register';
 
@@ -26,4 +25,4 @@ const getPostExcerpts: APIGatewayProxyHandler = async event => {
   }
 };
 
-export const main = middyfy(getPostExcerpts).use(verifyAccess());
+export const main = middyfy(getPostExcerpts);

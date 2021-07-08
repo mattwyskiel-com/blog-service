@@ -83,4 +83,29 @@ export class DynamoDBService {
       };
     }
   }
+
+  public static async getPostFromDB(slug: string): Promise<BlogPost> {
+    const dynamoClient = new DynamoDBClient({ region: process.env.AWS_REGION });
+    const docClient = DynamoDBDocumentClient.from(dynamoClient);
+    const executeStatementRequest = new ExecuteStatementCommand({
+      Statement: `SELECT * FROM "${process.env.DYNAMODB_TABLE}" WHERE "slug" = '${slug}'`,
+    });
+    Logger.debug('Request to DynamoDB: Execute PartiQL Statement', {
+      request: executeStatementRequest,
+    });
+
+    try {
+      const response = await docClient.send(executeStatementRequest);
+      Logger.debug('Execute PartiQL Statement Request successful', { response });
+      const posts: BlogPost[] = (response.Items as BlogPost[]) ?? [];
+      return posts[0];
+    } catch (error) {
+      Logger.error('Error retrieving blog post from DynamoDB', error);
+      throw {
+        status: 500,
+        error: 'Error retrieving blog post from DynamoDB',
+        details: error,
+      };
+    }
+  }
 }
