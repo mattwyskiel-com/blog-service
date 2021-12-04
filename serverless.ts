@@ -19,8 +19,8 @@ const serverlessConfiguration: AWS = {
       stage: '${self:provider.stage}',
     },
     domains: {
-      prod: 'api.mattwyskiel.com',
-      dev: 'api-dev.mattwyskiel.com',
+      prod: '${env:prod_domain}',
+      dev: '${env:dev_domain}',
     },
     prune: {
       automatic: true,
